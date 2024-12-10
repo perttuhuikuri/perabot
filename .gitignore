@@ -1,0 +1,15 @@
+# Exclude environment variables
+.env
+
+# Exclude Python virtual environment
+venv/
+
+# Exclude logs
+*.log
+
+# Exclude cache and compiled files
+__pycache__/
+*.pyc
+
+# Exclude resume.txt
+resume.txt
