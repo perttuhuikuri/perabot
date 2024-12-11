@@ -2,7 +2,7 @@ let sessionId = generateSessionId(); // Generate a unique session ID for the use
 
 const chatBox = document.getElementById('chat-box');
 const userInput = document.getElementById('user-input');
-const backendUrl = 'perachatbot.azurewebsites.net'
+const backendUrl = 'http://perachatbot.azurewebsites.net'
 
 // Generate a unique session ID
 function generateSessionId() {
