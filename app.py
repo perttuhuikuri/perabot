@@ -37,7 +37,8 @@ if not resume_text:
 client = OpenAI(api_key=api_key)
 
 app = Flask(__name__, static_folder="frontend", template_folder="frontend")
-CORS(app, resources={r"/chat": {"origins": "*"}})
+
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 # Initialize Flask-Limiter
 limiter = Limiter(
