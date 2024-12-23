@@ -75,7 +75,7 @@ def chat():
     try:
         chat_completion = client.chat.completions.create(
             messages=user_sessions[session_id],
-            model="gpt-4",
+            model="gpt-3.5-turbo",
         )
         chatbot_reply = chat_completion.choices[0].message.content.strip()
         user_sessions[session_id].append({"role": "assistant", "content": chatbot_reply})
