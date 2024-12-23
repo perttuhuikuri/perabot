@@ -36,10 +36,12 @@ def handle_rate_limit_exceeded(e):
     return jsonify({"error": "Too many requests. Please try again later."}), 429
 
 @app.route('/')
+@limiter.exempt
 def serve_index():
     return send_from_directory('frontend', 'index.html')
 
 @app.route('/favicon.ico')
+@limiter.exempt
 def favicon():
     return send_from_directory('frontend', 'favicon.ico')
 
