@@ -1,5 +1,8 @@
 from flask import Flask, send_from_directory, request, jsonify
 from flask_cors import CORS
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
+from flask_limiter.errors import RateLimitExceeded
 import os
 import uuid
 from openai import OpenAI
@@ -17,8 +20,20 @@ client = OpenAI(api_key=api_key)
 app = Flask(__name__, static_folder="frontend", template_folder="frontend")
 CORS(app, resources={r"/chat": {"origins": "*"}})
 
+# Initialize Flask-Limiter
+limiter = Limiter(
+    key_func=lambda: request.json.get("session_id", "default"),  # Use session_id for rate limiting
+    app=app,
+    default_limits=["10 per minute"],  # Default rate limit
+)
+
 # Store conversation history for sessions
 user_sessions = {}
+
+# Custom handler for rate limit exceeded
+@app.errorhandler(RateLimitExceeded)
+def handle_rate_limit_exceeded(e):
+    return jsonify({"error": "Too many requests. Please try again later."}), 429
 
 @app.route('/')
 def serve_index():
@@ -32,6 +47,7 @@ def serve_static_files(path):
         return "File not found", 404
 
 @app.route('/chat', methods=['POST'])
+@limiter.limit("10 per minute")  # Apply rate limit to /chat endpoint
 def chat():
     data = request.json
     user_message = data.get("message", "").strip()
