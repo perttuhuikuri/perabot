@@ -39,6 +39,10 @@ def handle_rate_limit_exceeded(e):
 def serve_index():
     return send_from_directory('frontend', 'index.html')
 
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory('frontend', 'favicon.ico')
+
 @app.route('/<path:path>')
 def serve_static_files(path):
     try:
