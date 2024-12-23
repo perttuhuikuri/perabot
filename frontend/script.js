@@ -48,7 +48,7 @@ async function sendMessage() {
     showTypingIndicator();
 
     try {
-        // Simulate a delay for bot response (optional)
+        // Simulate a delay for bot response
         await new Promise((resolve) => setTimeout(resolve, 500));
 
         // Send message to the Flask backend with session ID
