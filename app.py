@@ -46,6 +46,7 @@ def favicon():
     return send_from_directory('frontend', 'favicon.ico')
 
 @app.route('/<path:path>')
+@limiter.exempt
 def serve_static_files(path):
     try:
         return send_from_directory('frontend', path)
