@@ -6,13 +6,34 @@ from flask_limiter.errors import RateLimitExceeded
 import os
 import uuid
 from openai import OpenAI
+import PyPDF2
 
 # Load environment variables
 api_key = os.environ.get("OPENAI_API_KEY")
 if not api_key:
     raise ValueError("OPENAI_API_KEY is not set in the environment variables.")
 
-resume_text = os.environ.get("RESUME_TEXT", "Resume text not available.").replace("\\n", "\n")
+# Function to read resume data from a PDF file
+def read_resume_from_pdf(pdf_path):
+    try:
+        with open(pdf_path, "rb") as pdf_file:
+            pdf_reader = PyPDF2.PdfReader(pdf_file)
+            text = ""
+            for page in pdf_reader.pages:
+                text += page.extract_text()
+            return text.strip()
+    except Exception as e:
+        print(f"Error reading PDF: {e}")
+        return "Resume text not available."
+
+pdf_resume_path = "resume.pdf"
+
+# Extract resume text
+resume_text = read_resume_from_pdf(pdf_resume_path)
+if not resume_text:
+    raise ValueError("Failed to load resume from PDF file.")
+
+# resume_text = os.environ.get("RESUME_TEXT", "Resume text not available.").replace("\\n", "\n")
 
 # Initialize the OpenAI client
 client = OpenAI(api_key=api_key)
