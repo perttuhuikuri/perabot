@@ -1,8 +1,8 @@
-let sessionId = generateSessionId(); // Generate a unique session ID for the user //
+let sessionId = generateSessionId(); // Generate a unique session ID for the user
 
 const chatBox = document.getElementById('chat-box');
 const userInput = document.getElementById('user-input');
-const backendUrl = 'https://perachatbot.azurewebsites.net'
+const backendUrl = 'https://perachatbot.azurewebsites.net'; // Backend URL
 
 // Generate a unique session ID
 function generateSessionId() {
@@ -39,7 +39,6 @@ function hideTypingIndicator() {
 // Send user input to the backend
 async function sendMessage() {
     const message = userInput.value.trim();
-    
     if (!message) return;
 
     // Display the user's message
@@ -49,19 +48,19 @@ async function sendMessage() {
     showTypingIndicator();
 
     try {
-        // Simulate a delay for bot response (optional)
+        // Simulate a delay for bot response
         await new Promise((resolve) => setTimeout(resolve, 500));
 
         // Send message to the Flask backend with session ID
         const response = await fetch(`${backendUrl}/chat`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/json', // Ensure JSON Content-Type
             },
-            body: JSON.stringify({ 
+            body: JSON.stringify({
                 message: message,
                 session_id: sessionId,
-             }),
+            }),
         });
 
         const data = await response.json();
@@ -79,10 +78,15 @@ async function sendMessage() {
 // Function to reset the session
 async function resetSessionOnReload() {
     try {
-        await fetch(`${backendUrl}/chat`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ session_id: sessionId }),
+        // Call the reset endpoint
+        await fetch(`${backendUrl}/reset`, {
+            method: 'POST', // Use POST for reset endpoint
+            headers: {
+                'Content-Type': 'application/json', // Ensure JSON Content-Type
+            },
+            body: JSON.stringify({
+                session_id: sessionId,
+            }),
         });
 
         // Clear the chatbox and generate a new session ID
