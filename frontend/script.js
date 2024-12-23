@@ -36,9 +36,9 @@ function hideTypingIndicator() {
     }
 }
 
-// Send user input to the backend
 async function sendMessage() {
     const message = userInput.value.trim();
+    
     if (!message) return;
 
     // Display the user's message
@@ -48,20 +48,34 @@ async function sendMessage() {
     showTypingIndicator();
 
     try {
-        // Simulate a delay for bot response
+        // Simulate a delay for bot response (optional)
         await new Promise((resolve) => setTimeout(resolve, 500));
 
         // Send message to the Flask backend with session ID
         const response = await fetch(`${backendUrl}/chat`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json', // Ensure JSON Content-Type
+                'Content-Type': 'application/json',
             },
-            body: JSON.stringify({
+            body: JSON.stringify({ 
                 message: message,
                 session_id: sessionId,
-            }),
+             }),
         });
+
+        // Handle the 429 status
+        if (response.status === 429) {
+            hideTypingIndicator();
+            addMessage('Error: Too many requests. Please try again later.', 'bot');
+            return;
+        }
+
+        // Handle other non-200 responses
+        if (!response.ok) {
+            hideTypingIndicator();
+            addMessage('Error: Something went wrong. Please try again.', 'bot');
+            return;
+        }
 
         const data = await response.json();
 

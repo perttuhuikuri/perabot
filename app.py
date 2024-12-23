@@ -33,8 +33,6 @@ resume_text = read_resume_from_pdf(pdf_resume_path)
 if not resume_text:
     raise ValueError("Failed to load resume from PDF file.")
 
-# resume_text = os.environ.get("RESUME_TEXT", "Resume text not available.").replace("\\n", "\n")
-
 # Initialize the OpenAI client
 client = OpenAI(api_key=api_key)
 
@@ -54,7 +52,7 @@ user_sessions = {}
 # Custom handler for rate limit exceeded
 @app.errorhandler(RateLimitExceeded)
 def handle_rate_limit_exceeded(e):
-    return jsonify({"error": "Too many requests. Please try again later."}), 429
+    return jsonify({"response": "Too many requests. Please wait a moment before trying again."}), 429
 
 @app.route('/')
 @limiter.exempt
