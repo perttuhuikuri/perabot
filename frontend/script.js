@@ -93,7 +93,7 @@ async function sendMessage() {
 async function resetSessionOnReload() {
     try {
         // Call the reset endpoint
-        await fetch(`${backendUrl}/chat`, {
+        await fetch(`${backendUrl}/reset`, {
             method: 'POST', // Use POST for reset endpoint
             headers: {
                 'Content-Type': 'application/json', // Ensure JSON Content-Type
