@@ -42,7 +42,7 @@ CORS(app, resources={r"/*": {"origins": "https://perachatbot.azurewebsites.net"}
 
 # Initialize Flask-Limiter
 limiter = Limiter(
-    key_func=lambda: request.json.get("session_id", "default"),  # Use session_id for rate limiting
+    key_func=lambda: request.json.get("session_id", "default") if request.json else "default",  # Use session_id for rate limiting
     app=app,
     default_limits=["10 per minute"],  # Default rate limit
 )
