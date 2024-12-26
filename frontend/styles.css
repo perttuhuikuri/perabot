@@ -13,38 +13,40 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    padding: 15px 10px; /* Padding on mobile devices */
     overflow: hidden; /* Prevent body scrolling */
-    padding: 10px;
 }
 
-/* Chat container */
+/* Chat Container */
 .chat-container {
     display: flex;
     flex-direction: column;
     width: 100%;
     max-width: 600px;
+    height: calc(100vh - 30px); /* Account for padding */
     border-radius: 15px;
-    background-color: #fff;
+    background-color: #ffffff;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     overflow: hidden;
 }
 
 /* Chat Header */
 .chat-header {
-    flex-shrink: 0;
     background-color: #007bff;
-    color: #fff;
+    color: #ffffff;
     text-align: center;
-    padding: 20px;
+    padding: 15px;
     font-size: 1.5rem;
     font-weight: bold;
     border-bottom: 2px solid #0056b3;
+    flex-shrink: 0;
 }
 
+/* Chat Box */
 .chat-box {
     flex: 1;
     padding: 10px;
-    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-y: auto;
     background-color: #f7f7f7;
     display: flex;
     flex-direction: column;
@@ -54,7 +56,7 @@ body {
 
 /* Messages */
 .message {
-    max-width: 90%;
+    max-width: 90%; /* Wider messages */
     padding: 10px 15px;
     border-radius: 10px;
     word-wrap: break-word;
@@ -65,13 +67,13 @@ body {
 .message.user {
     align-self: flex-end;
     background-color: #007bff;
-    color: #fff;
+    color: #ffffff;
 }
 
 .message.bot {
     align-self: flex-start;
     background-color: #e5e5e5;
-    color: #333;
+    color: #333333;
 }
 
 /* Typing Indicator */
@@ -81,12 +83,14 @@ body {
     font-size: 1rem;
 }
 
+/* Chat Input */
 .chat-input {
     display: flex;
     padding: 10px;
     background-color: #fafafa;
     border-top: 1px solid #ccc;
-    padding-bottom: env(safe-area-inset-bottom, 10px);
+    flex-shrink: 0;
+    padding-bottom: env(safe-area-inset-bottom, 15px); /* Ensure safe area for mobile devices */
 }
 
 .chat-input input {
@@ -105,7 +109,7 @@ body {
 .chat-input button {
     padding: 10px 20px;
     background-color: #007bff;
-    color: #fff;
+    color: #ffffff;
     font-size: 1rem;
     font-weight: bold;
     border: none;
@@ -118,10 +122,19 @@ body {
     background-color: #0056b3;
 }
 
-/* Responsive Design */
+/* Responsive Design for Larger Screens */
 @media (min-width: 768px) {
+    body {
+        padding: 20px; /* Increase padding for larger screens */
+    }
+
+    .chat-container {
+        height: 90vh; /* Adjust for larger screens */
+    }
+
     .chat-header {
         font-size: 1.7rem;
+        padding: 20px;
     }
 
     .chat-input input {
