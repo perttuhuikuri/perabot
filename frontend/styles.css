@@ -8,12 +8,12 @@
 /* Body Styling */
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(145deg, #e6efff, #ffffff);
+    background: linear-gradient(145deg, #e3f2fd, #ffffff);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    padding: 15px 10px; /* Add top and bottom padding */
+    min-height: 100vh;
+    padding: 10px;
     overflow: hidden; /* Prevent body scrolling */
 }
 
@@ -23,34 +23,21 @@ body {
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
-    max-width: 420px;
-    height: calc(100vh - 60px); /* Account for outer padding */
-    border-radius: 15px;
+    max-width: 600px;
+    height: calc(100vh - 20px); /* Account for body padding */
+    border-radius: 12px;
     background: #ffffff;
-    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2);
-    overflow: hidden; /* Prevent scrollbars on the container itself */
-    position: relative;
-}
-
-/* Chat Box */
-.chat-box {
-    flex: 1;
-    padding: 15px;
-    overflow-y: auto; /* Enable vertical scrolling */
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    background-color: #f8f9fa;
-    scroll-behavior: smooth;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
 }
 
 /* Chat Header */
 .chat-header {
     background-color: #007bff;
     color: #ffffff;
-    padding: 15px;
     text-align: center;
-    flex-shrink: 0; /* Ensure header doesn't grow or shrink */
+    padding: 15px;
+    flex-shrink: 0;
 }
 
 .chat-header h1 {
@@ -63,11 +50,23 @@ body {
     opacity: 0.8;
 }
 
+/* Chat Box */
+.chat-box {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background-color: #f9f9f9;
+    scroll-behavior: smooth;
+}
+
 /* Messages */
 .message {
     max-width: 80%;
     padding: 10px 15px;
-    border-radius: 8px;
+    border-radius: 10px;
     font-size: 0.95rem;
     line-height: 1.4;
     word-wrap: break-word;
@@ -82,7 +81,7 @@ body {
 
 .message.bot {
     align-self: flex-start;
-    background-color: #e9ecef;
+    background-color: #e1e5ea;
     color: #333333;
 }
 
@@ -104,15 +103,15 @@ body {
     padding: 10px;
     background: #f1f3f5;
     border-top: 1px solid #d3d9de;
-    flex-shrink: 0; /* Ensure footer doesn't grow or shrink */
+    flex-shrink: 0;
 }
 
 .chat-footer input {
     flex: 1;
-    padding: 10px 15px;
+    padding: 10px;
     font-size: 1rem;
     border: 1px solid #ccc;
-    border-radius: 8px 0 0 8px;
+    border-radius: 6px 0 0 6px;
     outline: none;
 }
 
@@ -124,9 +123,10 @@ body {
     padding: 0 20px;
     background-color: #007bff;
     color: #ffffff;
-    font-size: 1.2rem;
+    font-size: 1rem;
+    font-weight: bold;
     border: none;
-    border-radius: 0 8px 8px 0;
+    border-radius: 0 6px 6px 0;
     cursor: pointer;
     transition: background-color 0.3s;
 }
@@ -137,13 +137,8 @@ body {
 
 /* Responsive Design */
 @media (min-width: 768px) {
-    body {
-        padding: 20px; /* Adjust padding for larger devices */
-    }
-
     .chat-container {
-        max-width: 500px;
-        height: calc(100vh - 40px); /* Reduce height slightly for larger padding */
+        max-width: 800px;
     }
 
     .chat-header h1 {
@@ -155,6 +150,6 @@ body {
     }
 
     .chat-footer button {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
 }
