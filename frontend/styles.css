@@ -62,13 +62,31 @@ body {
 
 .chat-box::-webkit-scrollbar-track {
     background: #e0e0e0; /* Track color */
-    border-radius: 10px;
+    border-radius: 10px; /* Round the track */
 }
 
 .chat-box::-webkit-scrollbar-thumb {
     background-color: #4a90e2; /* Thumb color */
+    border-radius: 10px; /* Round the thumb */
+    border: 2px solid #e0e0e0; /* Adds space around the thumb */
+}
+
+/* For Firefox (using scrollbar-width) */
+.chat-box {
+    scrollbar-width: thin; /* Thin scrollbar */
+    scrollbar-color: #4a90e2 #e0e0e0; /* Thumb and track colors */
+}
+
+/* For more control in Firefox */
+.chat-box::-moz-scrollbar {
+    width: 8px;
+    background: #e0e0e0;
+}
+
+.chat-box::-moz-scrollbar-thumb {
+    background-color: #4a90e2;
     border-radius: 10px;
-    border: 2px solid #e0e0e0; /* Adds space around thumb */
+    border: 2px solid #e0e0e0;
 }
 
 .chat-message {
