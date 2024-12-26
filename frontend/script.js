@@ -38,12 +38,11 @@ function hideTypingIndicator() {
 
 function adjustViewportHeight() {
     const chatContainer = document.querySelector('.chat-container');
-    if (chatContainer) {
-        chatContainer.style.height = `${window.innerHeight}px`; // Set to the actual viewport height
-    }
+    const actualViewportHeight = window.innerHeight; // Actual height minus the browser's UI
+    chatContainer.style.height = `${actualViewportHeight}px`; // Set height dynamically
 }
 
-// Adjust on load and resize
+// Adjust height on load and window resize
 window.addEventListener('load', adjustViewportHeight);
 window.addEventListener('resize', adjustViewportHeight);
 

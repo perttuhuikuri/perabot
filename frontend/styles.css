@@ -81,13 +81,12 @@ body {
     font-size: 1rem;
 }
 
-/* Chat Input */
 .chat-input {
-    flex-shrink: 0;
     display: flex;
     padding: 10px;
     background-color: #fafafa;
     border-top: 1px solid #ccc;
+    padding-bottom: env(safe-area-inset-bottom, 10px);
 }
 
 .chat-input input {
