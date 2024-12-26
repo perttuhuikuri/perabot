@@ -16,7 +16,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     width: 90%;
-    max-width: 400px;
+    max-width: 500px; /* Increased width for desktop */
     height: 80vh;
     background: #ffffff;
     border-radius: 10px;
@@ -127,5 +127,12 @@ body {
 @media (max-width: 600px) {
     .chat-container {
         height: 90vh;
+    }
+}
+
+@media (min-width: 1024px) {
+    .chat-container {
+        max-width: 800px; /* Larger width for desktop */
+        height: 85vh; /* Slightly taller for desktop */
     }
 }
