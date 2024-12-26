@@ -36,6 +36,17 @@ function hideTypingIndicator() {
     }
 }
 
+function adjustViewportHeight() {
+    const chatContainer = document.querySelector('.chat-container');
+    if (chatContainer) {
+        chatContainer.style.height = `${window.innerHeight}px`; // Set to the actual viewport height
+    }
+}
+
+// Adjust on load and resize
+window.addEventListener('load', adjustViewportHeight);
+window.addEventListener('resize', adjustViewportHeight);
+
 async function sendMessage() {
     const message = userInput.value.trim();
     

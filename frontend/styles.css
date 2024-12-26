@@ -17,14 +17,12 @@ body {
     padding: 10px;
 }
 
-/* Chat Container */
+/* Chat container */
 .chat-container {
     display: flex;
     flex-direction: column;
     width: 100%;
     max-width: 600px;
-    height: 100%;
-    max-height: 95vh;
     border-radius: 15px;
     background-color: #fff;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
