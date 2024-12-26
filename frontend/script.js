@@ -12,7 +12,8 @@ function generateSessionId() {
 // Add a message to the chat box
 function addMessage(message, sender) {
     const messageDiv = document.createElement('div');
-    messageDiv.classList.add('message', sender);
+    messageDiv.classList.add('chat-message'); // Add the base chat-message class
+    messageDiv.classList.add(sender === 'bot' ? 'bot' : 'user'); // Add the specific sender class (bot or user)
     messageDiv.innerText = message;
     chatBox.appendChild(messageDiv);
     chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the latest message
