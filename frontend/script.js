@@ -123,7 +123,7 @@ async function resetSessionOnReload() {
 // Add greeting message in two parts with typing indicator
 function displayGreeting() {
     const firstMessage = "Hi! I'm PeraBot, your assistant for answering questions about Perttu's resume.";
-    const secondMessage = "Please keep in mind, I'm currently in beta, so some of my answers might be incomplete or incorrect. Feel free to ask me anything! I also work in finnish.";
+    const secondMessage = "Keep in mind that I'm currently in beta, so some of my responses might not be complete or fully accurate. Feel free to ask me anything in English or Finnish!";
 
     // Show typing indicator before first message
     showTypingIndicator();
