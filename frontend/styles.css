@@ -13,8 +13,8 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding: 10px;
-    overflow: hidden; /* Prevent body scrolling */
+    padding: 30px 20px; /* Increased padding around the entire UI */
+    overflow: hidden; /* Prevent scrolling */
 }
 
 /* Chat Container */
@@ -24,7 +24,7 @@ body {
     justify-content: space-between;
     width: 100%;
     max-width: 600px;
-    height: calc(100vh - 20px); /* Account for body padding */
+    height: calc(100vh - 60px); /* Account for outer padding */
     border-radius: 12px;
     background: #ffffff;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
@@ -36,7 +36,7 @@ body {
     background-color: #007bff;
     color: #ffffff;
     text-align: center;
-    padding: 15px;
+    padding: 20px;
     flex-shrink: 0;
 }
 
@@ -53,11 +53,11 @@ body {
 /* Chat Box */
 .chat-box {
     flex: 1;
-    padding: 15px;
+    padding: 20px; /* Increased padding inside the chat box */
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 15px; /* Increased spacing between messages */
     background-color: #f9f9f9;
     scroll-behavior: smooth;
 }
@@ -65,10 +65,10 @@ body {
 /* Messages */
 .message {
     max-width: 80%;
-    padding: 10px 15px;
+    padding: 12px 18px; /* Increased padding inside messages */
     border-radius: 10px;
-    font-size: 0.95rem;
-    line-height: 1.4;
+    font-size: 1rem;
+    line-height: 1.5; /* Improved readability */
     word-wrap: break-word;
     animation: fadeIn 0.2s ease-in;
 }
@@ -100,7 +100,7 @@ body {
 /* Chat Footer */
 .chat-footer {
     display: flex;
-    padding: 10px;
+    padding: 15px 20px; /* Increased padding around the footer */
     background: #f1f3f5;
     border-top: 1px solid #d3d9de;
     flex-shrink: 0;
@@ -108,7 +108,7 @@ body {
 
 .chat-footer input {
     flex: 1;
-    padding: 10px;
+    padding: 12px 15px; /* Increased padding inside the input box */
     font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 6px 0 0 6px;
@@ -120,7 +120,7 @@ body {
 }
 
 .chat-footer button {
-    padding: 0 20px;
+    padding: 10px 20px; /* Increased button size */
     background-color: #007bff;
     color: #ffffff;
     font-size: 1rem;
@@ -137,8 +137,12 @@ body {
 
 /* Responsive Design */
 @media (min-width: 768px) {
+    body {
+        padding: 40px; /* Larger padding for desktop */
+    }
+
     .chat-container {
-        max-width: 800px;
+        max-width: 700px;
     }
 
     .chat-header h1 {
@@ -151,5 +155,9 @@ body {
 
     .chat-footer button {
         font-size: 1.2rem;
+    }
+
+    .message {
+        font-size: 1.1rem;
     }
 }
