@@ -43,6 +43,9 @@ body {
     font-weight: 400;
 }
 
+/* Scrollbar styles for all environments */
+
+/* Chat Box - Custom Scrollbar */
 .chat-box {
     flex: 1;
     padding: 20px;
@@ -51,24 +54,24 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    scrollbar-width: thin;
-    scrollbar-color: #4a90e2 #e0e0e0; /* Custom colors */
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: #4a90e2 #e0e0e0; /* Thumb and Track colors */
 }
 
-/* Modern scrollbar for webkit browsers */
+/* WebKit browsers (Chrome, Edge, Safari) */
 .chat-box::-webkit-scrollbar {
-    width: 8px;
+    width: 8px; /* Scrollbar width */
 }
 
 .chat-box::-webkit-scrollbar-track {
-    background: #e0e0e0; /* Track color */
-    border-radius: 10px; /* Round the track */
+    background: #e0e0e0; /* Track background color */
+    border-radius: 10px; /* Rounded track */
 }
 
 .chat-box::-webkit-scrollbar-thumb {
     background-color: #4a90e2; /* Thumb color */
-    border-radius: 10px; /* Round the thumb */
-    border: 2px solid #e0e0e0; /* Adds space around the thumb */
+    border-radius: 10px; /* Rounded thumb */
+    border: 2px solid #e0e0e0; /* Adds padding around the thumb */
 }
 
 .chat-message {
