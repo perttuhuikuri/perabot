@@ -1,163 +1,102 @@
-/* General Reset */
-* {
+/* Stylesheet for PeraBot - Modern and Responsive Design */
+
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-/* Body Styling */
-body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(145deg, #e3f2fd, #ffffff);
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f9;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    padding: 30px 20px; /* Increased padding around the entire UI */
-    overflow: hidden; /* Prevent scrolling */
+    height: 100vh;
 }
 
-/* Chat Container */
 .chat-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 100%;
-    max-width: 600px;
-    height: calc(100vh - 60px); /* Account for outer padding */
-    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    height: 80vh;
     background: #ffffff;
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
 }
 
-/* Chat Header */
 .chat-header {
-    background-color: #007bff;
+    background: #4a90e2;
     color: #ffffff;
-    text-align: center;
     padding: 20px;
-    flex-shrink: 0;
+    text-align: center;
 }
 
-.chat-header h1 {
+.chat-title {
+    margin: 0;
     font-size: 1.5rem;
-    margin-bottom: 5px;
+    font-weight: 700;
 }
 
-.chat-header .chat-subtitle {
+.chat-subtitle {
+    margin: 5px 0 0;
     font-size: 0.9rem;
-    opacity: 0.8;
+    font-weight: 400;
 }
 
-/* Chat Box */
 .chat-box {
     flex: 1;
-    padding: 20px; /* Increased padding inside the chat box */
+    padding: 20px;
     overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px; /* Increased spacing between messages */
-    background-color: #f9f9f9;
-    scroll-behavior: smooth;
+    background-color: #fafafa;
 }
 
-/* Messages */
-.message {
-    max-width: 80%;
-    padding: 12px 18px; /* Increased padding inside messages */
-    border-radius: 10px;
-    font-size: 1rem;
-    line-height: 1.5; /* Improved readability */
-    word-wrap: break-word;
-    animation: fadeIn 0.2s ease-in;
-}
-
-.message.user {
-    align-self: flex-end;
-    background-color: #007bff;
-    color: #ffffff;
-}
-
-.message.bot {
-    align-self: flex-start;
-    background-color: #e1e5ea;
-    color: #333333;
-}
-
-/* Typing Animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Chat Footer */
 .chat-footer {
     display: flex;
-    padding: 15px 20px; /* Increased padding around the footer */
-    background: #f1f3f5;
-    border-top: 1px solid #d3d9de;
-    flex-shrink: 0;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    border-top: 1px solid #e0e0e0;
 }
 
-.chat-footer input {
+#user-input {
     flex: 1;
-    padding: 12px 15px; /* Increased padding inside the input box */
+    padding: 10px;
     font-size: 1rem;
     border: 1px solid #ccc;
-    border-radius: 6px 0 0 6px;
+    border-radius: 5px;
     outline: none;
 }
 
-.chat-footer input:focus {
-    border-color: #007bff;
+#user-input:focus {
+    border-color: #4a90e2;
 }
 
-.chat-footer button {
-    padding: 10px 20px; /* Increased button size */
-    background-color: #007bff;
+#send-button {
+    background: #4a90e2;
     color: #ffffff;
-    font-size: 1rem;
-    font-weight: bold;
     border: none;
-    border-radius: 0 6px 6px 0;
+    margin-left: 10px;
+    padding: 10px;
+    border-radius: 50%;
     cursor: pointer;
-    transition: background-color 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s;
 }
 
-.chat-footer button:hover {
-    background-color: #0056b3;
+#send-button:hover {
+    background: #357ab8;
+}
+
+#send-button svg {
+    width: 20px;
+    height: 20px;
 }
 
 /* Responsive Design */
-@media (min-width: 768px) {
-    body {
-        padding: 40px; /* Larger padding for desktop */
-    }
-
+@media (max-width: 600px) {
     .chat-container {
-        max-width: 700px;
-    }
-
-    .chat-header h1 {
-        font-size: 1.75rem;
-    }
-
-    .chat-footer input {
-        font-size: 1.1rem;
-    }
-
-    .chat-footer button {
-        font-size: 1.2rem;
-    }
-
-    .message {
-        font-size: 1.1rem;
+        height: 90vh;
     }
 }
