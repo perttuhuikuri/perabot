@@ -13,7 +13,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    padding: 15px;
+    padding: 15px 10px; /* Add top and bottom padding */
     overflow: hidden; /* Prevent scrolling */
 }
 
@@ -24,7 +24,7 @@ body {
     justify-content: space-between;
     width: 100%;
     max-width: 420px;
-    height: calc(100vh - 30px); /* Adjust for body padding */
+    height: calc(100vh - 60px); /* Account for outer padding */
     border-radius: 15px;
     background: #ffffff;
     box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2);
@@ -135,8 +135,13 @@ body {
 
 /* Responsive Design */
 @media (min-width: 768px) {
+    body {
+        padding: 20px; /* Adjust padding for larger devices */
+    }
+
     .chat-container {
         max-width: 500px;
+        height: calc(100vh - 40px); /* Reduce height slightly for larger padding */
     }
 
     .chat-header h1 {
