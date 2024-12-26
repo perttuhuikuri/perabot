@@ -123,6 +123,38 @@ body {
     height: 20px;
 }
 
+/* Typing Indicator */
+.typing-indicator {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.typing-indicator .dot {
+    width: 8px;
+    height: 8px;
+    background-color: #4a90e2;
+    border-radius: 50%;
+    animation: typing 1.5s infinite;
+}
+
+.typing-indicator .dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-indicator .dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typing {
+    0%, 80%, 100% {
+        transform: scale(0);
+    }
+    40% {
+        transform: scale(1);
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 600px) {
     .chat-container {
@@ -132,7 +164,7 @@ body {
 
 @media (min-width: 1024px) {
     .chat-container {
-        max-width: 800px; /* Larger width for desktop */
+        max-width: 600px; /* Larger width for desktop */
         height: 85vh; /* Slightly taller for desktop */
     }
 }

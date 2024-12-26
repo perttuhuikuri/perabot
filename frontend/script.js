@@ -21,12 +21,20 @@ function addMessage(message, sender) {
 
 // Show typing indicator
 function showTypingIndicator() {
+    // Create the typing indicator container
     const typingIndicator = document.createElement('div');
-    typingIndicator.classList.add('message', 'bot', 'typing-indicator');
+    typingIndicator.classList.add('chat-message', 'bot', 'typing-indicator');
     typingIndicator.id = 'typing-indicator';
-    typingIndicator.innerText = 'PeraBot is typing...';
+
+    // Add three dots for the animation
+    for (let i = 0; i < 3; i++) {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        typingIndicator.appendChild(dot);
+    }
+
     chatBox.appendChild(typingIndicator);
-    chatBox.scrollTop = chatBox.scrollHeight;
+    chatBox.scrollTop = chatBox.scrollHeight; // Ensure it stays in view
 }
 
 // Hide typing indicator
