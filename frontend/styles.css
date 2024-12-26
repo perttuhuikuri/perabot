@@ -48,6 +48,35 @@ body {
     padding: 20px;
     overflow-y: auto;
     background-color: #fafafa;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.chat-message {
+    max-width: 75%;
+    padding: 10px 15px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    word-wrap: break-word;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.chat-message.bot {
+    align-self: flex-start;
+    background-color: #e0f7fa;
+    color: #006064;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 15px;
+}
+
+.chat-message.user {
+    align-self: flex-end;
+    background-color: #d1c4e9;
+    color: #4527a0;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 15px;
 }
 
 .chat-footer {
