@@ -51,6 +51,24 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: #4a90e2 #e0e0e0; /* Custom colors */
+}
+
+/* Modern scrollbar for webkit browsers */
+.chat-box::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chat-box::-webkit-scrollbar-track {
+    background: #e0e0e0; /* Track color */
+    border-radius: 10px; /* Round the track */
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+    background-color: #4a90e2; /* Thumb color */
+    border-radius: 10px; /* Round the thumb */
+    border: 2px solid #e0e0e0; /* Adds space around the thumb */
 }
 
 .chat-message {
