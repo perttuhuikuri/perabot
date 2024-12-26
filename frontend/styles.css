@@ -22,9 +22,9 @@ body {
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
-    max-width: 660px; /* 10% larger */
+    max-width: 700px; /* Slightly wider chat container */
     height: 100%;
-    max-height: 770px; /* 10% larger */
+    max-height: 90vh; /* Adjust height for better fit */
     border-radius: 15px; /* Larger rounded corners */
     background-color: #ffffff; /* Muted white */
     overflow: hidden;
@@ -35,9 +35,9 @@ body {
 .chat-header {
     background-color: #007bff; /* Vibrant blue */
     color: #ffffff;
-    padding: 22px; /* Increased padding */
+    padding: 20px;
     text-align: center;
-    font-size: 1.65rem; /* Increased font size */
+    font-size: 1.5rem; /* Adjusted font size */
     font-weight: bold;
     border-bottom: 2px solid #0056b3;
     border-radius: 15px 15px 0 0; /* Matches container corners */
@@ -46,23 +46,23 @@ body {
 /* Chat box */
 .chat-box {
     flex: 1;
-    padding: 12px; /* Increased padding */
+    padding: 10px; /* Reduced padding */
     overflow-y: auto;
     background-color: #f7f7f7; /* Softer light gray */
     display: flex;
     flex-direction: column;
-    gap: 12px; /* Increased gap */
+    gap: 10px; /* Adjusted gap */
     scroll-behavior: smooth;
 }
 
 /* Messages */
 .message {
-    max-width: 85%; /* Slightly wider messages */
-    padding: 12px 18px; /* Increased padding */
-    border-radius: 12px; /* Larger rounded corners */
+    max-width: 90%; /* Increased width for messages */
+    padding: 10px 16px; /* Slightly reduced padding */
+    border-radius: 10px; /* Adjusted rounded corners */
     word-wrap: break-word;
-    font-size: 1.1rem; /* Larger font size */
-    line-height: 1.5; /* Slightly taller line height */
+    font-size: 1rem; /* Slightly smaller font size */
+    line-height: 1.4; /* Reduced line height for compactness */
 }
 
 .message.user {
@@ -87,8 +87,8 @@ body {
 
 .chat-input input {
     flex: 1;
-    padding: 12px; /* Increased padding */
-    font-size: 1.1rem; /* Larger font size */
+    padding: 10px; /* Reduced padding */
+    font-size: 1rem; /* Adjusted font size */
     border: 1px solid #cccccc;
     border-radius: 6px 0 0 6px;
     outline: none;
@@ -99,10 +99,10 @@ body {
 }
 
 .chat-input button {
-    padding: 12px 24px; /* Increased padding */
+    padding: 10px 20px; /* Reduced padding */
     background-color: #007bff;
     color: #ffffff;
-    font-size: 1.1rem; /* Larger font size */
+    font-size: 1rem; /* Adjusted font size */
     font-weight: bold;
     border: none;
     border-radius: 0 6px 6px 0;
@@ -122,16 +122,16 @@ body {
     border: none;
     box-shadow: none;
     text-align: left;
-    font-size: 1.1rem; /* Increased font size */
+    font-size: 1rem; /* Adjusted font size */
 }
 
 /* Reset button styling */
 #reset-button {
-    margin: 12px auto; /* Increased margin */
-    padding: 12px 24px; /* Increased padding */
+    margin: 12px auto; /* Adjusted margin */
+    padding: 10px 20px; /* Reduced padding */
     background-color: #ff4d4d;
     color: #ffffff;
-    font-size: 1.1rem; /* Larger font size */
+    font-size: 1rem; /* Adjusted font size */
     border: none;
     border-radius: 6px;
     cursor: pointer;
@@ -145,18 +145,23 @@ body {
 /* Responsive Design */
 @media (max-width: 768px) {
     .chat-header {
-        font-size: 1.4rem; /* Scaled for smaller screens */
+        font-size: 1.3rem; /* Scaled for smaller screens */
+        padding: 16px;
     }
 
     .chat-input input {
-        font-size: 1rem; /* Scaled input size */
+        font-size: 0.9rem; /* Scaled input size */
     }
 
     .chat-input button {
-        font-size: 1rem; /* Scaled button size */
+        font-size: 0.9rem; /* Scaled button size */
     }
 
     .message {
-        font-size: 1rem; /* Scaled message font size */
+        font-size: 0.95rem; /* Scaled message font size */
+    }
+
+    .chat-container {
+        max-height: 95vh; /* Ensure it fits on smaller screens */
     }
 }
