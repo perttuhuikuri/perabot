@@ -1,8 +1,8 @@
-let sessionId = generateSessionId(); // Generate a unique session ID for the user
+let sessionId = generateSessionId();
 
 const chatBox = document.getElementById('chat-box');
 const userInput = document.getElementById('user-input');
-const backendUrl = 'https://perachatbot.azurewebsites.net'; // Backend URL
+const backendUrl = 'https://perachatbot.azurewebsites.net';
 
 // Generate a unique session ID
 function generateSessionId() {
@@ -16,7 +16,7 @@ function addMessage(message, sender) {
     messageDiv.classList.add(sender === 'bot' ? 'bot' : 'user'); // Add the specific sender class (bot or user)
     messageDiv.innerText = message;
     chatBox.appendChild(messageDiv);
-    chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the latest message
+    chatBox.scrollTop = chatBox.scrollHeight;
 }
 
 // Show typing indicator
@@ -34,7 +34,7 @@ function showTypingIndicator() {
     }
 
     chatBox.appendChild(typingIndicator);
-    chatBox.scrollTop = chatBox.scrollHeight; // Ensure it stays in view
+    chatBox.scrollTop = chatBox.scrollHeight;
 }
 
 // Hide typing indicator
@@ -103,9 +103,9 @@ async function resetSessionOnReload() {
     try {
         // Call the reset endpoint
         await fetch(`${backendUrl}/reset`, {
-            method: 'POST', // Use POST for reset endpoint
+            method: 'POST',
             headers: {
-                'Content-Type': 'application/json', // Ensure JSON Content-Type
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify({
                 session_id: sessionId,
@@ -123,7 +123,7 @@ async function resetSessionOnReload() {
 // Add greeting message in two parts with typing indicator
 function displayGreeting() {
     const firstMessage = "Hi! I'm PeraBot, your assistant for answering questions about Perttu's resume.";
-    const secondMessage = "Please keep in mind, I'm currently in beta, so some of my answers might be incomplete or incorrect. Feel free to ask me anything!";
+    const secondMessage = "Please keep in mind, I'm currently in beta, so some of my answers might be incomplete or incorrect. Feel free to ask me anything! I also work in finnish.";
 
     // Show typing indicator before first message
     showTypingIndicator();
