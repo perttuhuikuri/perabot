@@ -1,4 +1,4 @@
-let sessionId = generateSessionId();
+let sessionId = generateSessionId(); // session id
 
 const chatBox = document.getElementById('chat-box');
 const userInput = document.getElementById('user-input');
