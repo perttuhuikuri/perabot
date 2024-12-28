@@ -178,3 +178,9 @@ Contributions are welcome! To contribute:
 - [Flask](https://flask.palletsprojects.com/) for the backend framework.
 
 ---
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
+
+---
