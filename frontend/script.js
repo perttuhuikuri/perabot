@@ -2,7 +2,11 @@ let sessionId = generateSessionId();
 
 const chatBox = document.getElementById('chat-box');
 const userInput = document.getElementById('user-input');
-const backendUrl = 'https://perachatbot.azurewebsites.net';
+const backendBaseUrl = (document.body.dataset.backendUrl || window.location.origin).replace(/\/$/, '');
+
+function buildBackendUrl(path) {
+    return `${backendBaseUrl}${path}`;
+}
 
 // Generate a unique session ID
 function generateSessionId() {
@@ -61,7 +65,7 @@ async function sendMessage() {
         await new Promise((resolve) => setTimeout(resolve, 500));
 
         // Send message to the Flask backend with session ID
-        const response = await fetch(`${backendUrl}/chat`, {
+        const response = await fetch(buildBackendUrl('/chat'), {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -82,7 +86,8 @@ async function sendMessage() {
         // Handle other non-200 responses
         if (!response.ok) {
             hideTypingIndicator();
-            addMessage('Error: Something went wrong. Please try again.', 'bot');
+            const errorData = await response.json().catch(() => ({ response: 'Error: Something went wrong. Please try again.' }));
+            addMessage(errorData.response || 'Error: Something went wrong. Please try again.', 'bot');
             return;
         }
 
@@ -102,7 +107,7 @@ async function sendMessage() {
 async function resetSessionOnReload() {
     try {
         // Call the reset endpoint
-        await fetch(`${backendUrl}/reset`, {
+        await fetch(buildBackendUrl('/reset'), {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
